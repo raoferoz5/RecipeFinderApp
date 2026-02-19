@@ -1,0 +1,102 @@
+ScreenManager:
+    MainScreen:
+    DetailScreen:
+    FavoriteScreen:
+
+<MainScreen@Screen>:
+    name: "main"
+    BoxLayout:
+        orientation: "vertical"
+        padding: "12dp"
+        spacing: "10dp"
+
+        MDLabel:
+            text: "Smart Recipe Finder"
+            halign: "center"
+            font_style: "H5"
+
+        MDTextField:
+            id: category_input
+            hint_text: "Category (Breakfast, Dinner, Vegan)"
+            mode: "rectangle"
+
+        MDTextField:
+            id: ingredients_input
+            hint_text: "Enter ingredients e.g. egg,onion,tomato"
+            mode: "rectangle"
+
+        BoxLayout:
+            size_hint_y: None
+            height: "48dp"
+            spacing: "10dp"
+
+            MDRaisedButton:
+                text: "Find Recipes"
+                icon: "magnify"
+                on_release: app.find_recipes()
+
+            MDRaisedButton:
+                text: "Show Favorites"
+                icon: "heart"
+                on_release: app.show_favorites()
+
+        ScrollView:
+            MDList:
+                id: recipe_list
+                divider: "Inset"
+
+<DetailScreen@Screen>:
+    name: "detail"
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 10
+
+        Image:
+            id: recipe_image
+            size_hint_y: None
+            height: "200dp"
+            fit_mode: "contain"
+
+        MDLabel:
+            id: recipe_name
+            halign: "center"
+            font_style: "H5"
+
+        MDLabel:
+            id: recipe_ingredients
+
+        MDLabel:
+            id: recipe_steps
+
+        MDRaisedButton:
+            id: fav_button
+            text: "Add to Favorites"
+            theme_text_color: "Custom"
+            text_color: 0,0,0,1
+            on_release: app.toggle_favorite_detail()
+
+        MDRaisedButton:
+            text: "Back"
+            on_release: app.go_back()
+
+<FavoriteScreen@Screen>:
+    name: "favorite"
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 10
+
+        MDLabel:
+            text: "Favorite Recipes"
+            halign: "center"
+            font_style: "H5"
+
+        ScrollView:
+            MDList:
+                id: fav_list
+
+        MDRaisedButton:
+            text: "Back"
+            icon: "arrow-left"
+            on_release: app.go_back_from_fav()

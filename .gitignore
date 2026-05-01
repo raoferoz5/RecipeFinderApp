@@ -1,0 +1,15 @@
+# This ignores temporary Python files
+__pycache__/
+*.py[cod]
+
+# This ignores your local database (so clients start fresh)
+*.db
+
+# This ignores virtual environment folders
+venv/
+.venv/
+env/
+
+# This ignores system-specific junk files
+.DS_Store
+Thumbs.db

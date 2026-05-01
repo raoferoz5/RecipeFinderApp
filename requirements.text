@@ -1,0 +1,13 @@
+# Kivy and KivyMD for Cross-Platform UI
+kivy>=2.3.0
+kivymd>=1.2.0
+
+# Image handling and processing
+Pillow>=10.0.0
+
+# Database and Utilities
+# sqlite3 is built into Python, no external pip package needed
+# contextlib is built into Python, no external pip package needed
+
+# Optional: Certification/Security (if connecting to external APIs)
+certifi>=2024.2.2
